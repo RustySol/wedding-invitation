@@ -395,12 +395,11 @@ function setLang(lang, btn){
   var COLORS = [
     {hex:'#1B2A5E', label:'Royal blue'},
     {hex:'#2E4A9E', label:'Sapphire'},
-    {hex:'#FFFFFF', label:'White'},
     {hex:'#E8EAF2', label:'Lace'}
   ];
   var CHOICES = {
-    gown: COLORS.filter(function(c){ return c.hex !== '#FFFFFF'; }),  // guests are asked to avoid white
-    suit: COLORS
+    gown: COLORS,
+    suit: COLORS.concat([{hex:'#1C1C1C', label:'Black'}])
   };
   var outfit = {gown:'#E8EAF2', suit:'#1B2A5E'};
   var base = null, klass = null;
@@ -446,7 +445,6 @@ function setLang(lang, btn){
         b.type = 'button';
         b.className = 'swatch' + (outfit[part]===c.hex ? ' on' : '');
         b.style.background = c.hex;
-        if(c.hex === '#FFFFFF') b.style.borderColor = '#1B2A5E';
         b.setAttribute('aria-label', c.label);
         b.setAttribute('aria-pressed', outfit[part]===c.hex ? 'true' : 'false');
         b.onclick = function(){
