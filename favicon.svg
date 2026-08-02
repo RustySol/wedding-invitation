@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" fill="#101B40"/>
+  <circle cx="32" cy="32" r="28" fill="none" stroke="#B9C2D6" stroke-width="1.8"/>
+  <text x="32" y="40" text-anchor="middle" fill="#FFFFFF"
+        font-family="Georgia, 'Times New Roman', serif" font-size="23">R&amp;J</text>
+</svg>
