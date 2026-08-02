@@ -3,7 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Chiang Ru &amp; Julia Sakai — Wedding Invitation</title>
+<title>Ru Chiang &amp; Julia Sakai — Wedding Invitation</title>
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://wedding-invitation.vercel.app/">
+<meta property="og:title" content="Ru Chiang &amp; Julia Sakai — Wedding Invitation">
+<meta property="og:description" content="2026年12月13日（日）ウェスティンホテル東京 / Dec. 13, 2026 · The Westin Tokyo">
+<meta property="og:image" content="https://wedding-invitation.vercel.app/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Ru &amp; Julia — Dec. 13, 2026, The Westin Tokyo">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Shippori+Mincho:wght@400;500;600&family=Noto+Serif+TC:wght@400;500;600&family=Zen+Kaku+Gothic+New:wght@300;400;500&family=Noto+Sans+TC:wght@300;400;500&display=swap" rel="stylesheet">
@@ -106,7 +115,7 @@
   .block-num{ font-family:"Cormorant Garamond", serif; font-style:italic; font-size:13px; color:var(--sapphire); letter-spacing:.1em; }
   .block-title{ font-family:"Shippori Mincho","Noto Serif TC", serif; font-size:19px; color:var(--royal-deep); letter-spacing:.06em; }
 
-  [data-lang-scope]{ display:none; }
+  [data-lang-scope]:not(.show){ display:none; }
   [data-lang-scope].show{ display:block; }
   span[data-lang-scope].show{ display:inline; }
 
@@ -328,6 +337,7 @@ function setLang(lang, btn){
   });
   document.querySelectorAll('.lang-btn').forEach(function(b){ b.classList.remove('active'); });
   btn.classList.add('active');
+  document.documentElement.lang = { jp:'ja', cn:'zh-Hant', en:'en' }[lang];
 }
 </script>
 </body>
