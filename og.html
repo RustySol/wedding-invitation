@@ -62,8 +62,10 @@
     width:53%; height:100%;
     background-image:url("og-source.jpg");
     background-repeat:no-repeat;
-    background-size:auto 113%;   /* height-based, so it always covers the 630px canvas */
-    background-position:47% 90%; /* lower X shifts the photo right within the panel */
+    /* framed to match the hero crop: source window x 392-952, y 293-853,
+       which puts the couple dead centre horizontally and their faces on the midline */
+    background-size:auto 154%;
+    background-position:54% 98%;
     position:relative;
   }
   .photo::after{
