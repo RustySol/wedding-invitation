@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>og:image generator — screenshot this page at 1200x630</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Shippori+Mincho:wght@400;500&display=block" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{ width:1200px; height:630px; overflow:hidden; }
+
+  .card{ width:1200px; height:630px; display:flex; background:#101B40; }
+
+  .panel{
+    width:47%; height:100%; background:#101B40; color:#fff;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    padding:0 34px; position:relative;
+  }
+  .panel::before{
+    content:""; position:absolute; inset:22px;
+    border:1px solid rgba(185,194,214,.45);
+    outline:1px solid rgba(185,194,214,.18);
+    outline-offset:6px;
+  }
+
+  .crest{ width:104px; height:104px; margin-bottom:14px; }
+
+  .eyebrow{
+    font-family:"Cormorant Garamond", serif; font-size:19px; letter-spacing:.2em;
+    color:#B9C2D6; text-transform:uppercase; margin-bottom:14px;
+  }
+
+  .names{
+    font-family:"Cormorant Garamond", serif; font-size:74px; font-weight:500;
+    letter-spacing:.03em; line-height:1.05; white-space:nowrap;
+  }
+  .amp{ font-style:italic; color:#8FA3D6; padding:0 14px; }
+
+  .names-sub{
+    font-family:"Shippori Mincho", serif; font-size:20px; letter-spacing:.14em;
+    color:#C9D0E4; margin-top:16px;
+  }
+  .names-sub span{ margin:0 8px; color:#8FA3D6; }
+
+  .divider{ display:flex; align-items:center; gap:12px; margin:26px 0 22px; }
+  .divider .line{ width:64px; height:1px; background:linear-gradient(90deg, transparent, #B9C2D6); }
+  .divider .line.right{ background:linear-gradient(90deg, #B9C2D6, transparent); }
+  .divider .dot{ width:6px; height:6px; background:#B9C2D6; transform:rotate(45deg); }
+
+  .date{
+    font-family:"Cormorant Garamond", serif; font-size:36px; letter-spacing:.14em; color:#fff;
+    white-space:nowrap;
+  }
+  .venue{
+    font-family:"Cormorant Garamond", serif; font-size:20px; letter-spacing:.18em;
+    color:#B9C2D6; text-transform:uppercase; margin-top:14px; white-space:nowrap;
+  }
+
+  .photo{
+    width:53%; height:100%;
+    background-image:url("og-source.jpg");
+    background-repeat:no-repeat;
+    background-size:auto 113%;   /* height-based, so it always covers the 630px canvas */
+    background-position:47% 90%; /* lower X shifts the photo right within the panel */
+    position:relative;
+  }
+  .photo::after{
+    content:""; position:absolute; inset:0;
+    background:linear-gradient(90deg, rgba(16,27,64,.55) 0%, rgba(16,27,64,0) 22%);
+  }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="panel">
+    <svg class="crest" viewBox="0 0 112 112" fill="none">
+      <circle cx="56" cy="56" r="54" stroke="#B9C2D6" stroke-width="1"/>
+      <circle cx="56" cy="56" r="47" stroke="#8FA3D6" stroke-width="0.6"/>
+      <path d="M56 30 C60 40 70 42 78 40 C72 48 72 58 78 66 C70 64 60 66 56 76 C52 66 42 64 34 66 C40 58 40 48 34 40 C42 42 52 40 56 30Z" stroke="#B9C2D6" stroke-width="1" fill="none"/>
+      <text x="56" y="63" font-family="Cormorant Garamond, serif" font-style="italic" font-size="22" fill="#FFFFFF" text-anchor="middle">R · J</text>
+    </svg>
+    <div class="eyebrow">The Wedding Celebration Of</div>
+    <div class="names">Ru<span class="amp">&amp;</span>Julia</div>
+    <div class="names-sub">江承儒<span>·</span>坂井珠麗亜</div>
+    <div class="divider"><span class="line"></span><span class="dot"></span><span class="line right"></span></div>
+    <div class="date">Dec. 13, 2026</div>
+    <div class="venue">The Westin Tokyo</div>
+  </div>
+  <div class="photo"></div>
+</div>
+</body>
+</html>
