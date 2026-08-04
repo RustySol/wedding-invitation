@@ -41,18 +41,6 @@
     line-height:1.9;
     -webkit-font-smoothing:antialiased;
   }
-  body::before{
-    content:"";
-    position:fixed;
-    inset:0;
-    background-image:url("background-photo.jpeg");
-    background-repeat:no-repeat;
-    background-position:center;
-    background-size:cover;
-    opacity:.12;
-    pointer-events:none;
-    z-index:0;
-  }
   .curtain-opening{
     position:fixed;
     inset:0;
@@ -81,7 +69,7 @@
     0%,82%{ opacity:1; visibility:visible; }
     100%{ opacity:0; visibility:hidden; }
   }
-  .page{max-width:640px;margin:0 auto;padding-bottom:70px; position:relative;
+  .page{max-width:640px;margin:0 auto; position:relative;
     background:var(--white);
     z-index:1;
     border:1px solid var(--sapphire);
@@ -220,7 +208,21 @@
   .rsvp-btn:hover{ transform:translateY(-1px); }
   .rsvp-deadline{ margin-top:16px; font-size:11.5px; color:var(--silver); letter-spacing:.08em; }
 
-  footer{ text-align:center; padding:30px 24px 0; font-family:"Cormorant Garamond", serif; font-style:italic; font-size:12.5px; color:var(--muted); letter-spacing:.1em; }
+  footer{
+    text-align:center; min-height:420px; padding:58px 24px; font-family:"Cormorant Garamond", serif;
+    font-style:italic; font-size:15px; font-weight:600; color:var(--royal-deep);
+    letter-spacing:.1em; position:relative; overflow:visible;
+    display:flex; align-items:center; justify-content:center;
+  }
+  footer::before{
+    content:""; position:absolute; inset:0;
+    background-image:url("footer-photo.jpeg");
+    background-repeat:no-repeat;
+    background-position:center;
+    background-size:auto 100%;
+    opacity:.18;
+  }
+  footer span{ position:relative; z-index:1; }
 
   @media (max-width:480px){
     .hero{ padding:40px 18px 30px; }
@@ -419,7 +421,7 @@
     </div>
   </section>
 
-  <footer>with love, Ru &amp; Julia</footer>
+  <footer><span>with love, Ru &amp; Julia</span></footer>
 </div>
 
 <script>
