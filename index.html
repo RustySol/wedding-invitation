@@ -45,28 +45,58 @@
     position:fixed;
     inset:0;
     z-index:1000;
-    display:flex;
+    overflow:hidden;
     pointer-events:none;
-    animation:curtain-hide 2.7s ease forwards;
+    animation:curtain-hide 3.5s ease-in forwards;
   }
-  .curtain-opening span{
-    width:50%;
-    height:100%;
+  .curtain-panel{
+    position:absolute; top:0; bottom:0; width:52%;
     background:
-      linear-gradient(90deg, rgba(255,255,255,.08), transparent 18%, rgba(0,0,0,.18) 50%, transparent 82%, rgba(255,255,255,.06)),
-      repeating-linear-gradient(90deg, #101B40 0 34px, #152558 34px 68px);
-    box-shadow:inset 0 0 60px rgba(0,0,0,.35);
+      repeating-linear-gradient(90deg,
+        rgba(0,0,0,.46) 0,
+        rgba(0,0,0,.10) 12px,
+        rgba(255,255,255,.11) 26px,
+        rgba(0,0,0,.10) 40px,
+        rgba(0,0,0,.46) 54px),
+      linear-gradient(90deg, #0A1230 0%, #1C2E68 42%, #16255A 70%, #0B142F 100%);
+    box-shadow:inset 0 -80px 120px rgba(0,0,0,.42), 0 0 80px rgba(6,10,26,.55);
   }
-  .curtain-left{ transform-origin:left center; animation:curtain-left 2.2s cubic-bezier(.7,0,.2,1) .25s forwards; }
-  .curtain-right{ transform-origin:right center; animation:curtain-right 2.2s cubic-bezier(.7,0,.2,1) .25s forwards; }
+  .curtain-left{ left:0; transform-origin:left center; animation:curtain-left 2.9s cubic-bezier(.62,.03,.26,1) .35s forwards; }
+  .curtain-right{ right:0; transform-origin:right center; animation:curtain-right 2.9s cubic-bezier(.62,.03,.26,1) .35s forwards; }
+  .curtain-valance{
+    position:absolute; top:0; left:0; right:0; height:112px;
+    background-image:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='112' viewBox='0 0 300 112'%3E%3Cpath d='M0 24C75 98 225 98 300 24' fill='none' stroke='%23C8A96B' stroke-width='2.5'/%3E%3Cpath d='M0 15C75 89 225 89 300 15' fill='none' stroke='%23C8A96B' stroke-opacity='.35' stroke-width='1'/%3E%3Ccircle cx='0' cy='24' r='6.5' fill='%23C8A96B'/%3E%3Ccircle cx='300' cy='24' r='6.5' fill='%23C8A96B'/%3E%3Ccircle cx='0' cy='24' r='2.5' fill='%23705A2E'/%3E%3Ccircle cx='300' cy='24' r='2.5' fill='%23705A2E'/%3E%3C/svg%3E"),
+      repeating-linear-gradient(90deg,
+        rgba(0,0,0,.34) 0,
+        rgba(255,255,255,.16) 20px,
+        rgba(0,0,0,.34) 42px),
+      linear-gradient(180deg, #263C82 0%, #101C46 100%);
+    background-size:300px 112px, auto, auto;
+    background-repeat:repeat-x, repeat, no-repeat;
+    -webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='112' viewBox='0 0 300 112'%3E%3Cpath d='M0 0H300V24C225 98 75 98 0 24Z' fill='%23fff'/%3E%3C/svg%3E");
+    mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='112' viewBox='0 0 300 112'%3E%3Cpath d='M0 0H300V24C225 98 75 98 0 24Z' fill='%23fff'/%3E%3C/svg%3E");
+    -webkit-mask-size:300px 112px; mask-size:300px 112px;
+    -webkit-mask-repeat:repeat-x; mask-repeat:repeat-x;
+    filter:drop-shadow(0 8px 12px rgba(4,8,22,.55));
+    animation:curtain-valance 3.5s cubic-bezier(.5,0,.3,1) forwards;
+  }
   @keyframes curtain-left{
-    to{ transform:translateX(-100%); }
+    0%{ transform:translateX(0) scaleX(1); }
+    55%,72%{ transform:translateX(-3%) scaleX(.2); }
+    100%{ transform:translateX(-112%) scaleX(.2); }
   }
   @keyframes curtain-right{
-    to{ transform:translateX(100%); }
+    0%{ transform:translateX(0) scaleX(1); }
+    55%,72%{ transform:translateX(3%) scaleX(.2); }
+    100%{ transform:translateX(112%) scaleX(.2); }
+  }
+  @keyframes curtain-valance{
+    0%,54%{ transform:translateY(0); }
+    93%,100%{ transform:translateY(-100%); }
   }
   @keyframes curtain-hide{
-    0%,82%{ opacity:1; visibility:visible; }
+    0%,94%{ opacity:1; visibility:visible; }
     100%{ opacity:0; visibility:hidden; }
   }
   .page{max-width:640px;margin:0 auto; position:relative;
@@ -229,6 +259,11 @@
     .names-en{ font-size:28px; }
     section.block{ padding:34px 20px; }
     .dress-grid{ grid-template-columns:1fr; }
+    .curtain-valance{
+      height:74px;
+      background-size:200px 74px, auto, auto;
+      -webkit-mask-size:200px 74px; mask-size:200px 74px;
+    }
   }
   @media (prefers-reduced-motion:reduce){
     .curtain-opening{ display:none; }
@@ -236,7 +271,7 @@
 </style>
 </head>
 <body>
-<div class="curtain-opening" aria-hidden="true"><span class="curtain-left"></span><span class="curtain-right"></span></div>
+<div class="curtain-opening" aria-hidden="true"><span class="curtain-panel curtain-left"></span><span class="curtain-panel curtain-right"></span><span class="curtain-valance"></span></div>
 <div class="page">
 
   <div class="hero">
