@@ -8,3 +8,4 @@ Routes:
 - `/invite2/` is the ceremony and reception invitation
 - `/singular/` mirrors `/` with its own RSVP form
 - `/invite2-singular/` mirrors `/invite2/` with its own RSVP form
+- `/30days/` is the RSVP-free, 30-days-to-go reception update with after-party information
